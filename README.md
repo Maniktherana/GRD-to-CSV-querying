@@ -62,7 +62,7 @@ touch .env
 ```.env
 API_KEY=<Your API Key>
 ```
-4. In order to convert grd data to csv, run `prepare_data.py`
+4. In order to convert grd data to csv, run `prepare_data.py`. Note: Make sure there are no csv files in `data/csv` and its subdirectories
 ```bash
 python prepare_data.py
 ```
