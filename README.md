@@ -19,11 +19,13 @@ These python scripts take gridded Rainfall, Max Temperature and Min Temperature 
 ```bash
 git clone https://github.com/Maniktherana/GRD-to-CSV-querying.git
 ```
-
-2. Create a virtual environment and install
+2. Create a virtual environment 
 ```bash
 python3 -m venv grdToCsv
 source grdToCsv/bin/activate
+```
+3. Install dependencies
+```bash
 pip install -r requirements.txt
 ```
 
