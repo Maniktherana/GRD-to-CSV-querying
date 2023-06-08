@@ -1,4 +1,4 @@
-# Convert GRD Files to CSV and Query Climate Data
+# Convert GRD to CSV and Query Climate Data
 
 These python scripts take gridded Rainfall, Max Temperature and Min Temperature from [Climate Research & Services, Pune](https://www.imdpune.gov.in/lrfindex.php) and converts them into csv data. The scripts can also be used to query csv data by city/state, dataset (max temp, min temp or rainfall) and time.
 
