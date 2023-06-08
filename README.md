@@ -358,37 +358,43 @@ The function `query_data` queries data based on specified criteria such as the s
 
 ```python
 def query_data(dataset, start_date, end_date, place):
-
+    # List to store filtered DataFrames for each year
     dfs = []
 
     for year in range(start_year, end_year + 1):
-        file_path = get_data_file_path(dataset, year)
-        if not os.path.isfile(file_path):
-            print(f"No data available for {year}")
-            continue
+        # Get the file path for the dataset and year
+        file_path = get_data_file_path(dataset, year)  
 
         df = pd.read_csv(file_path)
+        
+        # Filter the DataFrame based on the specified place (case-insensitive)
         df_filtered = df[
             (df["Name"].str.lower() == place.lower()) | (df["State"].str.lower() == place.lower())
-        ]
-
+        ]  
+        
+        # Select date columns that fall within the specified start and end dates
         date_columns = [
             col for col in df_filtered.columns if start_date <= col <= end_date
         ]
 
+        # Include additional columns for the first year (start_year)
         if year == start_year:
             columns_to_select = [
                 "Name",
                 "State",
                 "Longitude",
                 "Latitude",
-            ] + date_columns
+            ] + date_columns  
         else:
+            # Only select date columns for subsequent years
             columns_to_select = date_columns
+        
+        # Select the desired columns from the filtered DataFrame
+        data = df_filtered[columns_to_select]  
 
-        data = df_filtered[columns_to_select]
+        dfs.append(data)  # Append the filtered DataFrame to the list
 
-        dfs.append(data)
+
 ```
 
 
