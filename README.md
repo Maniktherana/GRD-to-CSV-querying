@@ -174,6 +174,7 @@ main() {
 
 However, **this approach is significantly slow** when dealing with rainfall data due to the sheer size of the datasets. Hence, I chose to use pandas as it provides a powerful and efficient way to handle and manipulate tabular data. 
 
+[convert.py](https://github.com/Maniktherana/GRD-to-CSV-querying/blob/master/utils/convert.py)
 ```python
 for year in range(start_year, end_year):
         START_DATE = datetime(year, 1, 1)
@@ -220,9 +221,10 @@ In this code, I utilized pandas to convert the collected gridded data into a Dat
 
 The data gets parsed into a **wide dataset** where 99.9 (for temperature) or -999.0 (for rainfall) represents no data collected:
 ```csv
-Latitude	Longitude	01/01/90	02/01/90	03/01/90	04/01/90
-7.5	      67.5	    99.9	    99.9	    99.9	    99.9
-7.5	      68.5	    99.9	    99.9	    99.9	    99.9
+| Latitude | Longitude | 01/01/90 | 02/01/90 | 03/01/90 | 02/01/90 |
+|----------|-----------|----------|----------|----------|----------|
+| 7.5      | 67.5      | 99.9     | 99.9     | 99.9     | 31.84    |
+| 7.5      | 68.5      | 99.9     | 99.9     | 99.9     | 31.84    |
 ```
 
 ### Manipulating Data
@@ -249,9 +251,10 @@ loop.run_until_complete(asyncio.gather(*tasks))
 
 All location data gets saved to `/data/csv/all_locations.csv`. I then use this file to append all locations to all of the csv datasets:
 ```csv
-Name	    State	      Latitude	Longitude	01/01/90	02/01/90
-Nanguneri	Tamil Nadu	8.5	      77.5	    31.99	    31.84
-Nanguneri	Tamil Nadu	8.5	      77.5	    31.99	    31.84
+| Name      | State      | Latitude | Longitude | 01/01/90 | 02/01/90 |
+|-----------|------------|----------|-----------|----------|----------|
+| Nanguneri | Tamil Nadu | 8.5      | 77.5      | 31.99    | 31.84    |
+| Nanguneri | Tamil Nadu | 8.5      | 77.5      | 31.99    | 31.84    |
 
 ```
 Once that is done, querying for data becomes relatively simple and can be done with pandas.
