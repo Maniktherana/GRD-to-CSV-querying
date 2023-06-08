@@ -220,12 +220,34 @@ for year in range(start_year, end_year):
 In this code, I utilized pandas to convert the collected gridded data into a DataFrame. By appending the data to a list of rows and specifying the column names, I was able to create a structured and organized representation of the gridded data. The resulting DataFrame allows for convenient analysis, processing, and export of the data in various formats, such as converting it to a csv file in this case.
 
 The data gets parsed into a **wide dataset** where 99.9 (for temperature) or -999.0 (for rainfall) represents no data collected:
-```csv
-| Latitude | Longitude | 01/01/90 | 02/01/90 | 03/01/90 | 02/01/90 |
-|----------|-----------|----------|----------|----------|----------|
-| 7.5      | 67.5      | 99.9     | 99.9     | 99.9     | 31.84    |
-| 7.5      | 68.5      | 99.9     | 99.9     | 99.9     | 31.84    |
-```
+<table class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th title="Field #1">Latitude</th>
+      <th title="Field #2">Longitude</th>
+      <th title="Field #3">1990-01-01</th>
+      <th title="Field #4">1990-01-02</th>
+      <th title="Field #5">1990-01-03</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="right">7.5</td>
+      <td align="right">67.5</td>
+      <td align="right">99.9</td>
+      <td align="right">99.9</td>
+      <td align="right">99.9</td>
+    </tr>
+    <tr>
+      <td align="right">7.5</td>
+      <td align="right">68.5</td>
+      <td align="right">99.9</td>
+      <td align="right">99.9</td>
+      <td align="right">99.9</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Manipulating Data
 
@@ -250,13 +272,32 @@ loop.run_until_complete(asyncio.gather(*tasks))
 ```
 
 All location data gets saved to `/data/csv/all_locations.csv`. I then use this file to append all locations to all of the csv datasets:
-```csv
-| Name      | State      | Latitude | Longitude | 01/01/90 | 02/01/90 |
-|-----------|------------|----------|-----------|----------|----------|
-| Nanguneri | Tamil Nadu | 8.5      | 77.5      | 31.99    | 31.84    |
-| Nanguneri | Tamil Nadu | 8.5      | 77.5      | 31.99    | 31.84    |
 
-```
+<table class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th title="Field #1">Name</th>
+      <th title="Field #2">State</th>
+      <th title="Field #3">Latitude</th>
+      <th title="Field #4">Longitude</th>
+      <th title="Field #5">1990-01-01</th>
+      <th title="Field #6">1990-01-02</th>
+      <th title="Field #7">1990-01-03</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nanguneri</td>
+      <td>Tamil Nadu</td>
+      <td align="right">8.5</td>
+      <td align="right">77.5</td>
+      <td align="right">31.99</td>
+      <td align="right">31.84</td>
+      <td align="right">32.34</td>
+    </tr>
+  </tbody>
+</table>
+
 Once that is done, querying for data becomes relatively simple and can be done with pandas.
 
 
