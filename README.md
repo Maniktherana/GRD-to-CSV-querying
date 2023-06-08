@@ -2,6 +2,12 @@
 
 These python scripts take gridded Rainfall, Max Temperature and Min Temperature from [Climate Research & Services, Pune](https://www.imdpune.gov.in/lrfindex.php) and converts them into csv data. The scripts can also be used to data by City or State, Dataset (max, min or rainfall) and Time.
 
+## Table of contents
+
+- [Setup and Installation](#setup-and-installation)
+- [Quering Data](#querying-data)
+
+
 ## Setup and Installation
 
 1. Clone this repository
