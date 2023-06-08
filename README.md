@@ -5,8 +5,8 @@ These python scripts take gridded Rainfall, Max Temperature and Min Temperature 
 ## Table of contents
 
 - [Setup and Installation](#setup-and-installation)
-- [Quering Data](#querying-data)
-- [Converting Data](#converting-data)
+- [How to Query Data](#how-to-query-data)
+- [How to Convert Data](#how-to-convert-data)
 - [How it works](#how-it-works)
   - [Data Directory Structure](#data-directory-structure)
   - [Converting Data](#converting-data)
@@ -31,7 +31,7 @@ source grdToCsv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Querying Data
+## How to Query Data
 
 The entrypoint is main.py
 ```bash
@@ -51,20 +51,17 @@ Enter the place (city or state): Greater Noida
 All filtered data saved to ./data/csv/results/min_filtered.csv
 ```
 
-## Converting Data
+## How to Convert Data
 
-1. Preparing data requires the use of the [Open Weather Reverse geocoding API](https://openweathermap.org/api/geocoding-api#reverse). Simply sign up for an account to get the API key.
-
+1. `prepare_data.py` and its dependency `get_locations.py` requires the use of the [Open Weather Reverse geocoding API](https://openweathermap.org/api/geocoding-api#reverse). Simply sign up for an account to get an API key.
 2. Create a `.env` file at the root level:
 ```bash
 touch .env
 ```
-
 3. Add your API key:
 ```.env
 API_KEY=<Your API Key>
 ```
-
 4. In order to convert grd data to csv, run `prepare_data.py`
 ```bash
 python prepare_data.py
