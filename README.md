@@ -95,7 +95,7 @@ python prepare_data.py
 
 ### Converting Data
 
-Converting the data is relatively straightforward as sample code is provided by India Meteorological Department [on their website](https://www.imdpune.gov.in/lrfindex.php):
+Converting the data is relatively straightforward as sample code is provided by India Meteorological Department on their [website](https://www.imdpune.gov.in/lrfindex.php):
 
 ```c
 /* This program reads binary data for 365/366 days and writes in ascii file. */ #include
