@@ -350,6 +350,45 @@ def map_locations_to_datasets():
 
 
 
-Once that is done, querying for data becomes relatively simple and can be done with pandas.
+Once that is done, querying for data becomes relatively straightforward and can be done with pandas. 
+
+### Querying Data
+
+The function `query_data` queries data based on specified criteria such as the start and end dates and the place. It reads CSV files corresponding to the specified dataset and years, filters the data based on the provided criteria, and selects the relevant columns. It then appends the filtered data horizontally by concatenating the columns, excluding duplicate columns for subsequent years. Finally, it saves the resulting DataFrame as a CSV file and provides a message about the status of the operation.
+
+```python
+def query_data(dataset, start_date, end_date, place):
+
+    dfs = []
+
+    for year in range(start_year, end_year + 1):
+        file_path = get_data_file_path(dataset, year)
+        if not os.path.isfile(file_path):
+            print(f"No data available for {year}")
+            continue
+
+        df = pd.read_csv(file_path)
+        df_filtered = df[
+            (df["Name"].str.lower() == place.lower()) | (df["State"].str.lower() == place.lower())
+        ]
+
+        date_columns = [
+            col for col in df_filtered.columns if start_date <= col <= end_date
+        ]
+
+        if year == start_year:
+            columns_to_select = [
+                "Name",
+                "State",
+                "Longitude",
+                "Latitude",
+            ] + date_columns
+        else:
+            columns_to_select = date_columns
+
+        data = df_filtered[columns_to_select]
+
+        dfs.append(data)
+```
 
 
