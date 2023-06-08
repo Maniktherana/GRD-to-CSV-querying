@@ -21,6 +21,14 @@ def get_data_file_path(dataset, year):
 
 
 def query_data(dataset, start_date, end_date, place):
+    # Validate start and end dates
+    if len(start_date) != 10 or len(end_date) != 10:
+        raise ValueError("Invalid date format")
+
+    # if start date is greater than end date, swap them
+    if start_date > end_date:
+        start_date, end_date = end_date, start_date
+
     start_year = int(start_date[:4])
     end_year = int(end_date[:4])
 
