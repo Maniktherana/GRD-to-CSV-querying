@@ -55,7 +55,7 @@ All filtered data saved to ./data/csv/results/min_filtered.csv
 
 1. Preparing data requires the use of the [Open Weather Reverse geocoding API](https://openweathermap.org/api/geocoding-api#reverse). Simply sign up for an account to get the API key.
 
-2. Create a `.env` at the root level:
+2. Create a `.env` file at the root level:
 ```bash
 touch .env
 ```
