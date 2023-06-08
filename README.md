@@ -4,12 +4,12 @@ These python scripts take gridded Rainfall, Max Temperature and Min Temperature 
 
 ## Setup and Installation
 
-Clone this repository
+1. Clone this repository
 ```bash
 git clone https://github.com/Maniktherana/GRD-to-CSV-querying.git
 ```
 
-Create a virtual environment and install
+2. Create a virtual environment and install
 ```bash
 python3 -m venv grdToCsv
 source grdToCsv/bin/activate
@@ -27,8 +27,12 @@ Example Query:
 ```bash
 Enter the dataset you want to query (min, max, or rainfall): min
 Enter the start date (YYYY-MM-DD): 2001-01-01
-Enter the end date (YYYY-MM-DD): 2003-01-01
-Enter the place (city or state): Gujarat
+Enter the end date (YYYY-MM-DD): 2001-01-02
+Enter the place (city or state): Greater Noida
+              Name          State  Longitude  Latitude  2001-01-01  2001-01-02
+768  Greater Noida  Uttar Pradesh       77.5      28.5        11.2        7.37
+769  Greater Noida  Uttar Pradesh       77.5      28.5        11.2        7.37
+770  Greater Noida  Uttar Pradesh       77.5      28.5        11.2        7.37
 All filtered data saved to ./data/csv/results/min_filtered.csv
 ```
 
