@@ -12,6 +12,7 @@ These python scripts take gridded Rainfall, Max Temperature and Min Temperature 
   - [Converting Data](#converting-data)
   - [Converting longitudes and latitudes to cities](#converting-longitudes-and-latitudes-to-cities)
   - [Manipulating Data](#manipulating-data)
+  - [Querying Data](#querying-data)
 
 
 ## Setup and Installation
