@@ -60,6 +60,7 @@ def query_data(dataset, start_date, end_date, place):
         output_file_path = f"./data/csv/results/{dataset}_filtered.csv"
         result_df = pd.concat(dfs, axis=1)
         result_df.to_csv(output_file_path, index=False)
+        print(result_df)
         print(f"All filtered data saved to {output_file_path}")
     else:
         print("No data available for the specified range and place")
