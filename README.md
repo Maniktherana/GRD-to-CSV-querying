@@ -10,7 +10,7 @@ These python scripts take gridded Rainfall, Max Temperature and Min Temperature 
 - [How it works](#how-it-works)
   - [Data Directory Structure](#data-directory-structure)
   - [Converting Data](#converting-data)
-  - [Converting longitudes and latitudes to cities](#converting-longitudes-and-latitudes-to-cities)
+  - [Mapping longitudes and latitudes to cities](#mapping-longitudes-and-latitudes-to-cities)
   - [Manipulating Data](#manipulating-data)
   - [Querying Data](#querying-data)
 
@@ -250,7 +250,7 @@ The data gets parsed into a **wide dataset** where 99.9 (for temperature) or -99
 </table>
 
 
-### Converting longitudes and latitudes to cities
+### Mapping longitudes and latitudes to cities
 
 I chose to use the reverse geocoding API provided by Open Weather in order to map Longitude and Latitude values to a city and state in India. I utilized asyncio and aiohttp to run the requests concurrently, hence speeding up the api calls. While the API has a rate limit of 60 calls/minute for the free plan, I used `asyncio.Semaphore(60)` to get by this restriction:
 ```python
@@ -272,7 +272,7 @@ tasks = [fetch_data(row) for _, row in df.iterrows()]
 loop.run_until_complete(asyncio.gather(*tasks))
 ```
 
-This results in 3 csv files with location data for all longitudes and latitudes. They then get merged into a single `all_locations.csv` file using basic pandas.
+This results in 3 csv files with location data for all longitudes and latitudes. They then get merged into a single `all_locations.csv` file using pandas.
 <table class="table table-bordered table-hover table-condensed">
   <thead>
     <tr>
